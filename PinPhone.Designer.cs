@@ -47,20 +47,20 @@
             button3.TabIndex = 25;
             button3.Text = "Сохранить данные";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += Save;
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Enabled = false;
-            dateTimePicker1.Location = new Point(418, 116);
+            dateTimePicker1.Location = new Point(101, 68);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(138, 23);
+            dateTimePicker1.Size = new Size(119, 23);
             dateTimePicker1.TabIndex = 57;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F);
-            label4.Location = new Point(345, 114);
+            label4.Location = new Point(20, 69);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(47, 21);
@@ -70,16 +70,16 @@
             // comboBox2
             // 
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(190, 64);
+            comboBox2.Location = new Point(360, 24);
             comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(366, 23);
+            comboBox2.Size = new Size(201, 23);
             comboBox2.TabIndex = 54;
             // 
             // label3
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(20, 119);
+            label3.Location = new Point(228, 68);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(74, 21);
@@ -90,7 +90,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(20, 62);
+            label2.Location = new Point(228, 22);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(125, 21);
@@ -108,24 +108,23 @@
             label1.Size = new Size(61, 21);
             label1.TabIndex = 51;
             label1.Text = "Номер:";
-            label1.Click += label1_Click;
             // 
             // textBox1
             // 
             textBox1.Enabled = false;
-            textBox1.Location = new Point(190, 24);
+            textBox1.Location = new Point(101, 24);
             textBox1.Margin = new Padding(4);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(366, 23);
+            textBox1.Size = new Size(119, 23);
             textBox1.TabIndex = 50;
             textBox1.Text = " ";
             // 
             // maskedTextBox1
             // 
-            maskedTextBox1.Location = new Point(101, 119);
+            maskedTextBox1.Location = new Point(360, 68);
             maskedTextBox1.Mask = "8 (999) 999-99-99";
             maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(107, 23);
+            maskedTextBox1.Size = new Size(119, 23);
             maskedTextBox1.TabIndex = 58;
             // 
             // PinPhone
@@ -145,6 +144,7 @@
             Name = "PinPhone";
             Padding = new Padding(10);
             Text = "Закрепление телефона";
+            Load += OnLoad;
             ResumeLayout(false);
             PerformLayout();
         }

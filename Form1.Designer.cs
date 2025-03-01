@@ -32,7 +32,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             menuStrip1 = new MenuStrip();
             asdfToolStripMenuItem = new ToolStripMenuItem();
+            предприятиеToolStripMenuItem = new ToolStripMenuItem();
+            подразделениеToolStripMenuItem = new ToolStripMenuItem();
+            руководительToolStripMenuItem = new ToolStripMenuItem();
             asdfToolStripMenuItem1 = new ToolStripMenuItem();
+            закреплениеМестоположенияToolStripMenuItem = new ToolStripMenuItem();
+            закреплениеТелефоновToolStripMenuItem = new ToolStripMenuItem();
+            закреплениеРуководителяToolStripMenuItem = new ToolStripMenuItem();
             отчетыToolStripMenuItem = new ToolStripMenuItem();
             сервисныеФункцииToolStripMenuItem = new ToolStripMenuItem();
             imageList1 = new ImageList(components);
@@ -53,28 +59,73 @@
             // 
             // asdfToolStripMenuItem
             // 
+            asdfToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { предприятиеToolStripMenuItem, подразделениеToolStripMenuItem, руководительToolStripMenuItem });
             asdfToolStripMenuItem.Name = "asdfToolStripMenuItem";
             asdfToolStripMenuItem.Size = new Size(68, 20);
             asdfToolStripMenuItem.Text = "Объекты";
-            asdfToolStripMenuItem.Click += asdfToolStripMenuItem_Click;
+            // 
+            // предприятиеToolStripMenuItem
+            // 
+            предприятиеToolStripMenuItem.Name = "предприятиеToolStripMenuItem";
+            предприятиеToolStripMenuItem.Size = new Size(159, 22);
+            предприятиеToolStripMenuItem.Text = "Предприятие";
+            предприятиеToolStripMenuItem.Click += OpenCompanyForm;
+            // 
+            // подразделениеToolStripMenuItem
+            // 
+            подразделениеToolStripMenuItem.Name = "подразделениеToolStripMenuItem";
+            подразделениеToolStripMenuItem.Size = new Size(159, 22);
+            подразделениеToolStripMenuItem.Text = "Подразделение";
+            подразделениеToolStripMenuItem.Click += OpenDivisionForm;
+            // 
+            // руководительToolStripMenuItem
+            // 
+            руководительToolStripMenuItem.Name = "руководительToolStripMenuItem";
+            руководительToolStripMenuItem.Size = new Size(159, 22);
+            руководительToolStripMenuItem.Text = "Руководитель";
+            руководительToolStripMenuItem.Click += OpenDirectorForm;
             // 
             // asdfToolStripMenuItem1
             // 
+            asdfToolStripMenuItem1.DropDownItems.AddRange(new ToolStripItem[] { закреплениеМестоположенияToolStripMenuItem, закреплениеТелефоновToolStripMenuItem, закреплениеРуководителяToolStripMenuItem });
             asdfToolStripMenuItem1.Name = "asdfToolStripMenuItem1";
             asdfToolStripMenuItem1.Size = new Size(75, 20);
             asdfToolStripMenuItem1.Text = "Операции";
+            // 
+            // закреплениеМестоположенияToolStripMenuItem
+            // 
+            закреплениеМестоположенияToolStripMenuItem.Name = "закреплениеМестоположенияToolStripMenuItem";
+            закреплениеМестоположенияToolStripMenuItem.Size = new Size(245, 22);
+            закреплениеМестоположенияToolStripMenuItem.Text = "Закрепление местоположения";
+            закреплениеМестоположенияToolStripMenuItem.Click += OpenPlacementPinnigForm;
+            // 
+            // закреплениеТелефоновToolStripMenuItem
+            // 
+            закреплениеТелефоновToolStripMenuItem.Name = "закреплениеТелефоновToolStripMenuItem";
+            закреплениеТелефоновToolStripMenuItem.Size = new Size(245, 22);
+            закреплениеТелефоновToolStripMenuItem.Text = "Закрепление телефонов";
+            закреплениеТелефоновToolStripMenuItem.Click += OpenPhonePinnigForm;
+            // 
+            // закреплениеРуководителяToolStripMenuItem
+            // 
+            закреплениеРуководителяToolStripMenuItem.Name = "закреплениеРуководителяToolStripMenuItem";
+            закреплениеРуководителяToolStripMenuItem.Size = new Size(245, 22);
+            закреплениеРуководителяToolStripMenuItem.Text = "Закрепление руководителя";
+            закреплениеРуководителяToolStripMenuItem.Click += OpenDirectorPinnigForm;
             // 
             // отчетыToolStripMenuItem
             // 
             отчетыToolStripMenuItem.Name = "отчетыToolStripMenuItem";
             отчетыToolStripMenuItem.Size = new Size(60, 20);
             отчетыToolStripMenuItem.Text = "Отчеты";
+            отчетыToolStripMenuItem.Click += OpenReportForm;
             // 
             // сервисныеФункцииToolStripMenuItem
             // 
             сервисныеФункцииToolStripMenuItem.Name = "сервисныеФункцииToolStripMenuItem";
             сервисныеФункцииToolStripMenuItem.Size = new Size(133, 20);
             сервисныеФункцииToolStripMenuItem.Text = "Сервисные функции";
+            сервисныеФункцииToolStripMenuItem.Click += OpenAboutBoxForm;
             // 
             // imageList1
             // 
@@ -96,7 +147,7 @@
             logoPictureBox.Location = new Point(0, 24);
             logoPictureBox.Margin = new Padding(4, 3, 4, 3);
             logoPictureBox.Name = "logoPictureBox";
-            logoPictureBox.Size = new Size(800, 426);
+            logoPictureBox.Size = new Size(800, 385);
             logoPictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             logoPictureBox.TabIndex = 13;
             logoPictureBox.TabStop = false;
@@ -105,7 +156,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 409);
             Controls.Add(logoPictureBox);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
@@ -129,5 +180,11 @@
         private ImageList imageList1;
         private ImageList imageList2;
         private PictureBox logoPictureBox;
+        private ToolStripMenuItem предприятиеToolStripMenuItem;
+        private ToolStripMenuItem подразделениеToolStripMenuItem;
+        private ToolStripMenuItem руководительToolStripMenuItem;
+        private ToolStripMenuItem закреплениеМестоположенияToolStripMenuItem;
+        private ToolStripMenuItem закреплениеТелефоновToolStripMenuItem;
+        private ToolStripMenuItem закреплениеРуководителяToolStripMenuItem;
     }
 }

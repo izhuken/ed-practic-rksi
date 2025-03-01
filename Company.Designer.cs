@@ -44,7 +44,6 @@
             // 
             // textBox3
             // 
-            textBox3.Enabled = false;
             textBox3.Location = new Point(180, 110);
             textBox3.Margin = new Padding(4);
             textBox3.Name = "textBox3";
@@ -59,6 +58,7 @@
             button5.TabIndex = 54;
             button5.Text = "В конец";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += GoToEnd;
             // 
             // button6
             // 
@@ -68,6 +68,7 @@
             button6.TabIndex = 53;
             button6.Text = "Вперед";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += GoToNext;
             // 
             // button4
             // 
@@ -77,6 +78,7 @@
             button4.TabIndex = 52;
             button4.Text = "Удалить данные";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += DeleteRow;
             // 
             // button3
             // 
@@ -86,6 +88,7 @@
             button3.TabIndex = 51;
             button3.Text = "Сохранить данные";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += UpdateOrCreate;
             // 
             // button2
             // 
@@ -95,6 +98,7 @@
             button2.TabIndex = 50;
             button2.Text = "Назад";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += GoToPrevious;
             // 
             // button1
             // 
@@ -104,10 +108,10 @@
             button1.TabIndex = 49;
             button1.Text = "В начало";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += GoToStart;
             // 
             // textBox2
             // 
-            textBox2.Enabled = false;
             textBox2.Location = new Point(182, 65);
             textBox2.Margin = new Padding(4);
             textBox2.Name = "textBox2";
@@ -139,7 +143,6 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Enabled = false;
             label1.Font = new Font("Segoe UI", 12F);
             label1.Location = new Point(21, 18);
             label1.Margin = new Padding(10, 0, 10, 0);
@@ -156,6 +159,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(126, 23);
             textBox1.TabIndex = 43;
+            textBox1.TabStop = false;
             // 
             // Company
             // 
@@ -176,7 +180,8 @@
             Controls.Add(textBox1);
             Name = "Company";
             Padding = new Padding(10);
-            Text = "Company";
+            Text = "Компании";
+            Load += Company_Load;
             ResumeLayout(false);
             PerformLayout();
         }

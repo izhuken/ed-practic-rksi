@@ -43,7 +43,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F);
-            label3.Location = new Point(21, 129);
+            label3.Location = new Point(234, 70);
             label3.Margin = new Padding(4, 0, 4, 0);
             label3.Name = "label3";
             label3.Size = new Size(113, 21);
@@ -54,7 +54,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F);
-            label2.Location = new Point(21, 74);
+            label2.Location = new Point(234, 26);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(125, 21);
@@ -76,35 +76,34 @@
             // textBox1
             // 
             textBox1.Enabled = false;
-            textBox1.Location = new Point(174, 24);
+            textBox1.Location = new Point(96, 26);
             textBox1.Margin = new Padding(4);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(120, 23);
             textBox1.TabIndex = 26;
             textBox1.Text = " ";
-            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // comboBox2
             // 
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(174, 76);
+            comboBox2.Location = new Point(365, 26);
             comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(388, 23);
+            comboBox2.Size = new Size(197, 23);
             comboBox2.TabIndex = 46;
             // 
             // comboBox3
             // 
             comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(174, 131);
+            comboBox3.Location = new Point(365, 72);
             comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(388, 23);
+            comboBox3.Size = new Size(197, 23);
             comboBox3.TabIndex = 47;
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F);
-            label4.Location = new Point(21, 177);
+            label4.Location = new Point(21, 72);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(47, 21);
@@ -113,10 +112,9 @@
             // 
             // dateTimePicker1
             // 
-            dateTimePicker1.Enabled = false;
-            dateTimePicker1.Location = new Point(174, 175);
+            dateTimePicker1.Location = new Point(96, 72);
             dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(388, 23);
+            dateTimePicker1.Size = new Size(120, 23);
             dateTimePicker1.TabIndex = 49;
             // 
             // button1
@@ -127,6 +125,7 @@
             button1.TabIndex = 53;
             button1.Text = "Сохранить данные";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += Save;
             // 
             // PinDirector
             // 
@@ -144,6 +143,7 @@
             Controls.Add(textBox1);
             Name = "PinDirector";
             Text = "Закрепление руководителя";
+            Load += OnLoad;
             ResumeLayout(false);
             PerformLayout();
         }

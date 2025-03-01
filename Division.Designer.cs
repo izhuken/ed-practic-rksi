@@ -48,22 +48,22 @@
             textBox3 = new TextBox();
             label7 = new Label();
             comboBox1 = new ComboBox();
+            label8 = new Label();
+            dateTimePicker1 = new DateTimePicker();
             SuspendLayout();
             // 
             // textBox1
             // 
             textBox1.Enabled = false;
             textBox1.Location = new Point(181, 19);
-            textBox1.Margin = new Padding(4, 4, 4, 4);
+            textBox1.Margin = new Padding(4);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(126, 29);
             textBox1.TabIndex = 0;
-            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Enabled = false;
             label1.Font = new Font("Segoe UI", 12F);
             label1.Location = new Point(20, 22);
             label1.Margin = new Padding(10, 0, 10, 0);
@@ -71,7 +71,6 @@
             label1.Size = new Size(40, 21);
             label1.TabIndex = 1;
             label1.Text = "Код:";
-            label1.Click += label1_Click;
             // 
             // label2
             // 
@@ -83,7 +82,6 @@
             label2.Size = new Size(81, 21);
             label2.TabIndex = 2;
             label2.Text = "Название:";
-            label2.Click += label2_Click;
             // 
             // label3
             // 
@@ -100,7 +98,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F);
-            label4.Location = new Point(20, 163);
+            label4.Location = new Point(441, 244);
             label4.Margin = new Padding(4, 0, 4, 0);
             label4.Name = "label4";
             label4.Size = new Size(154, 21);
@@ -111,7 +109,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F);
-            label5.Location = new Point(20, 208);
+            label5.Location = new Point(20, 157);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
             label5.Size = new Size(141, 21);
@@ -122,17 +120,15 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F);
-            label6.Location = new Point(20, 253);
+            label6.Location = new Point(20, 202);
             label6.Margin = new Padding(4, 0, 4, 0);
             label6.Name = "label6";
-            label6.Size = new Size(155, 21);
+            label6.Size = new Size(51, 21);
             label6.TabIndex = 6;
-            label6.Text = "Электронный адрес:";
-            label6.Click += label6_Click;
+            label6.Text = "Email:";
             // 
             // textBox2
             // 
-            textBox2.Enabled = false;
             textBox2.Location = new Point(182, 64);
             textBox2.Margin = new Padding(4);
             textBox2.Name = "textBox2";
@@ -141,17 +137,15 @@
             // 
             // textBox4
             // 
-            textBox4.Enabled = false;
-            textBox4.Location = new Point(182, 160);
+            textBox4.Location = new Point(651, 241);
             textBox4.Margin = new Padding(4);
             textBox4.Name = "textBox4";
-            textBox4.Size = new Size(668, 29);
+            textBox4.Size = new Size(200, 29);
             textBox4.TabIndex = 9;
             // 
             // textBox5
             // 
-            textBox5.Enabled = false;
-            textBox5.Location = new Point(181, 205);
+            textBox5.Location = new Point(181, 154);
             textBox5.Margin = new Padding(4);
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(669, 29);
@@ -159,9 +153,9 @@
             // 
             // maskedTextBox1
             // 
-            maskedTextBox1.Location = new Point(181, 250);
+            maskedTextBox1.Location = new Point(181, 199);
             maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(669, 29);
+            maskedTextBox1.Size = new Size(249, 29);
             maskedTextBox1.TabIndex = 13;
             // 
             // button1
@@ -172,6 +166,7 @@
             button1.TabIndex = 15;
             button1.Text = "В начало";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += GoToStart;
             // 
             // button2
             // 
@@ -181,7 +176,7 @@
             button2.TabIndex = 16;
             button2.Text = "Назад";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            button2.Click += GoToPrevious;
             // 
             // button3
             // 
@@ -191,6 +186,7 @@
             button3.TabIndex = 17;
             button3.Text = "Сохранить данные";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += UpdateOrCreate;
             // 
             // button4
             // 
@@ -200,6 +196,7 @@
             button4.TabIndex = 20;
             button4.Text = "Удалить данные";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += DeleteRow;
             // 
             // button5
             // 
@@ -209,6 +206,7 @@
             button5.TabIndex = 22;
             button5.Text = "В конец";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += GoToEnd;
             // 
             // button6
             // 
@@ -218,10 +216,10 @@
             button6.TabIndex = 21;
             button6.Text = "Вперед";
             button6.UseVisualStyleBackColor = true;
+            button6.Click += GoToNext;
             // 
             // textBox3
             // 
-            textBox3.Enabled = false;
             textBox3.Location = new Point(182, 109);
             textBox3.Margin = new Padding(4);
             textBox3.Name = "textBox3";
@@ -232,7 +230,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F);
-            label7.Location = new Point(20, 298);
+            label7.Location = new Point(20, 247);
             label7.Margin = new Padding(4, 0, 4, 0);
             label7.Name = "label7";
             label7.Size = new Size(85, 21);
@@ -242,16 +240,36 @@
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(181, 295);
+            comboBox1.Location = new Point(181, 244);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(669, 29);
+            comboBox1.Size = new Size(249, 29);
             comboBox1.TabIndex = 25;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 12F);
+            label8.Location = new Point(441, 202);
+            label8.Margin = new Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(177, 21);
+            label8.TabIndex = 26;
+            label8.Text = "Дата назначения email:";
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(651, 196);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(200, 29);
+            dateTimePicker1.TabIndex = 27;
             // 
             // Division
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(864, 504);
+            Controls.Add(dateTimePicker1);
+            Controls.Add(label8);
             Controls.Add(comboBox1);
             Controls.Add(label7);
             Controls.Add(textBox3);
@@ -273,10 +291,10 @@
             Controls.Add(label1);
             Controls.Add(textBox1);
             Font = new Font("Segoe UI", 12F);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "Division";
             Padding = new Padding(10);
-            Text = "Division";
+            Text = "Подразделения";
             Load += Division_Load;
             ResumeLayout(false);
             PerformLayout();
@@ -304,5 +322,7 @@
         private TextBox textBox3;
         private Label label7;
         private ComboBox comboBox1;
+        private Label label8;
+        private DateTimePicker dateTimePicker1;
     }
 }

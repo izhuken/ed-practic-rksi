@@ -78,7 +78,6 @@
             logoPictureBox.SizeMode = PictureBoxSizeMode.CenterImage;
             logoPictureBox.TabIndex = 12;
             logoPictureBox.TabStop = false;
-            logoPictureBox.Click += this.logoPictureBox_Click;
             // 
             // labelProductName
             // 
@@ -115,7 +114,6 @@
             labelCopyright.TabIndex = 21;
             labelCopyright.Text = "© Кизименко Александр, 2025";
             labelCopyright.TextAlign = ContentAlignment.MiddleLeft;
-            labelCopyright.Click += labelCopyright_Click;
             // 
             // labelCompanyName
             // 
@@ -166,7 +164,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "AboutBox";
-            Padding = new Padding(10, 10, 10, 10);
+            Padding = new Padding(10);
             ShowIcon = false;
             ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterParent;
