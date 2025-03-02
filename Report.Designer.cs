@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
-            dataGridView1 = new DataGridView();
-            radioButton1 = new RadioButton();
-            radioButton2 = new RadioButton();
-            radioButton3 = new RadioButton();
-            dateTimePicker1 = new DateTimePicker();
-            dateTimePicker2 = new DateTimePicker();
-            dateTimePicker3 = new DateTimePicker();
-            label1 = new Label();
             label2 = new Label();
             dateTimePicker4 = new DateTimePicker();
+            label1 = new Label();
+            dateTimePicker3 = new DateTimePicker();
+            dateTimePicker2 = new DateTimePicker();
+            dateTimePicker1 = new DateTimePicker();
+            radioButton3 = new RadioButton();
+            radioButton2 = new RadioButton();
+            radioButton1 = new RadioButton();
+            dataGridView1 = new DataGridView();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -61,78 +61,6 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Формирование списков";
             // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 161);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(840, 371);
-            dataGridView1.TabIndex = 0;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // radioButton1
-            // 
-            radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(6, 41);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(202, 19);
-            radioButton1.TabIndex = 1;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "список телефонов предприятий";
-            radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(6, 70);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(222, 19);
-            radioButton2.TabIndex = 2;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "количество предприятий без E-mail";
-            radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(6, 99);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(396, 19);
-            radioButton3.TabIndex = 3;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "название подразделения с самой большой текчкой руководителей";
-            radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(427, 37);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(137, 23);
-            dateTimePicker1.TabIndex = 4;
-            // 
-            // dateTimePicker2
-            // 
-            dateTimePicker2.Location = new Point(427, 66);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(137, 23);
-            dateTimePicker2.TabIndex = 5;
-            // 
-            // dateTimePicker3
-            // 
-            dateTimePicker3.Location = new Point(455, 95);
-            dateTimePicker3.Name = "dateTimePicker3";
-            dateTimePicker3.Size = new Size(137, 23);
-            dateTimePicker3.TabIndex = 6;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(427, 99);
-            label1.Name = "label1";
-            label1.Size = new Size(22, 15);
-            label1.TabIndex = 7;
-            label1.Text = "от:";
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -148,6 +76,84 @@
             dateTimePicker4.Name = "dateTimePicker4";
             dateTimePicker4.Size = new Size(137, 23);
             dateTimePicker4.TabIndex = 8;
+            dateTimePicker4.ValueChanged += DivisionMaxDirectorTurnoverRangeOnChange;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(427, 99);
+            label1.Name = "label1";
+            label1.Size = new Size(22, 15);
+            label1.TabIndex = 7;
+            label1.Text = "от:";
+            // 
+            // dateTimePicker3
+            // 
+            dateTimePicker3.Location = new Point(455, 95);
+            dateTimePicker3.Name = "dateTimePicker3";
+            dateTimePicker3.Size = new Size(137, 23);
+            dateTimePicker3.TabIndex = 6;
+            dateTimePicker3.ValueChanged += DivisionMaxDirectorTurnoverRangeOnChange;
+            // 
+            // dateTimePicker2
+            // 
+            dateTimePicker2.Location = new Point(455, 66);
+            dateTimePicker2.Name = "dateTimePicker2";
+            dateTimePicker2.Size = new Size(137, 23);
+            dateTimePicker2.TabIndex = 5;
+            dateTimePicker2.ValueChanged += DivisionNullableEmailsDateOnChange;
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(455, 37);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(137, 23);
+            dateTimePicker1.TabIndex = 4;
+            dateTimePicker1.ValueChanged += DivisionPhonesDateOnChange;
+            // 
+            // radioButton3
+            // 
+            radioButton3.AutoSize = true;
+            radioButton3.Location = new Point(6, 99);
+            radioButton3.Name = "radioButton3";
+            radioButton3.Size = new Size(396, 19);
+            radioButton3.TabIndex = 3;
+            radioButton3.TabStop = true;
+            radioButton3.Text = "название подразделения с самой большой текчкой руководителей";
+            radioButton3.UseVisualStyleBackColor = true;
+            radioButton3.Click += ShowDivisionMaxDirectorTurnover;
+            // 
+            // radioButton2
+            // 
+            radioButton2.AutoSize = true;
+            radioButton2.Location = new Point(6, 70);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(222, 19);
+            radioButton2.TabIndex = 2;
+            radioButton2.TabStop = true;
+            radioButton2.Text = "количество предприятий без E-mail";
+            radioButton2.UseVisualStyleBackColor = true;
+            radioButton2.Click += ShowDivisionNullableEmails;
+            // 
+            // radioButton1
+            // 
+            radioButton1.AutoSize = true;
+            radioButton1.Location = new Point(6, 41);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new Size(202, 19);
+            radioButton1.TabIndex = 1;
+            radioButton1.TabStop = true;
+            radioButton1.Text = "список телефонов предприятий";
+            radioButton1.UseVisualStyleBackColor = true;
+            radioButton1.Click += ShowDivisionPhones;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(12, 161);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(840, 371);
+            dataGridView1.TabIndex = 0;
             // 
             // Report
             // 

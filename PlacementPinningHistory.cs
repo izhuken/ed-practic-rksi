@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EdPractic_Alex;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -47,14 +49,6 @@ namespace EdPractic_Alex
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridView1.ReadOnly = true;
-
-            var idColumn = new DataGridViewTextBoxColumn
-            {
-                HeaderText = "ID",
-                DataPropertyName = "Idddd" // Maps to the Id property of the Person class
-            };
-
-            dataGridView1.Columns.Add(idColumn);
         }
 
         private void CellFormatter(object sender, DataGridViewCellFormattingEventArgs e)
@@ -151,3 +145,4 @@ namespace EdPractic_Alex
         }
     }
 }
+

@@ -258,8 +258,11 @@
             // 
             // dateTimePicker1
             // 
+            dateTimePicker1.Checked = false;
+            dateTimePicker1.CustomFormat = "";
             dateTimePicker1.Location = new Point(651, 196);
             dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.ShowCheckBox = true;
             dateTimePicker1.Size = new Size(200, 29);
             dateTimePicker1.TabIndex = 27;
             // 

@@ -45,7 +45,7 @@ namespace EdPractic_Alex
             textBox3.Text = placement.flat;
             textBox5.Text = placement.room;
         }
-
+        
         private void Save(object sender, EventArgs e)
         {
             string validatedDate = dateTimePicker1.Value.ToString("yyyy-MM-dd");

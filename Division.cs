@@ -48,9 +48,18 @@ namespace EdPractic_Alex
             textBox4.Text = CurrentDataTable.Rows[n]["code"].ToString();
             textBox5.Text = CurrentDataTable.Rows[n]["acivity_type"].ToString();
             maskedTextBox1.Text = CurrentDataTable.Rows[n]["email"].ToString();
-            dateTimePicker1.Value = DateTime.Parse(CurrentDataTable.Rows[n]["changed_email"].ToString());
             comboBox1.Text = CurrentDataTable.Rows[n]["CompanyName"].ToString();
             textBox1.Enabled = false;
+
+            if (CurrentDataTable.Rows[n]["changed_email"].ToString() == "")
+            {
+                dateTimePicker1.Value = DateTime.Now;
+                dateTimePicker1.Checked = false;
+                dateTimePicker1.ShowCheckBox = true;
+            }
+            else {
+                dateTimePicker1.Value = DateTime.Parse(CurrentDataTable.Rows[n]["changed_email"].ToString());
+            }
         }
 
         private void Division_Load(object sender, EventArgs e)
@@ -110,14 +119,25 @@ namespace EdPractic_Alex
         private void UpdateOrCreate(object sender, EventArgs e)
         {
             string query;
-            string validatedDate = dateTimePicker1.Value.ToString("yyyy-MM-dd");
+            string validatedDate = "NULL";
             var selectedCompanyId = Convert.ToInt32(((DataRowView)comboBox1.SelectedItem).Row["id"]);
+
+            if (!dateTimePicker1.Checked && maskedTextBox1.Text.Trim() != "")
+            {
+                validatedDate = DateTime.Now.ToString("yyyy-MM-dd");
+            }
+
+            if (dateTimePicker1.Checked || maskedTextBox1.Text != "")
+            {
+                validatedDate = $"'{dateTimePicker1.Value.ToString("yyyy-MM-dd")}'";
+                
+            }
 
             if (n < CurrentDataTable.Rows.Count)
             {
                 query = "update division set"
                     + $" name='{textBox2.Text}', short_name='{textBox3.Text}', code='{textBox4.Text}',"
-                    + $" acivity_type='{textBox4.Text}', email='{maskedTextBox1.Text}', changed_email='{validatedDate}', company_id={selectedCompanyId}"
+                    + $" acivity_type='{textBox4.Text}', email='{maskedTextBox1.Text}', changed_email={validatedDate}, company_id={selectedCompanyId}"
                     + $" where id={textBox1.Text}";
 
                 if (!Form1.ExecuteQuery(query)) return;
@@ -126,12 +146,18 @@ namespace EdPractic_Alex
                     textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text,
                     textBox5.Text, maskedTextBox1.Text, dateTimePicker1.Text, selectedCompanyId, comboBox1.Text
                 };
+
+                if (validatedDate != "NULL")
+                {
+                    dateTimePicker1.Checked = true;
+                }
+
                 return;
             }
 
             query = "insert into division (id, name, short_name, code, acivity_type, email, changed_email, company_id)"
                 + $" values ({textBox1.Text}, '{textBox2.Text}', '{textBox3.Text}',"
-                + $"'{textBox4.Text}', '{textBox5.Text}', '{maskedTextBox1.Text}', '{validatedDate}', {selectedCompanyId})";
+                + $"'{textBox4.Text}', '{textBox5.Text}', '{maskedTextBox1.Text}', {validatedDate}, {selectedCompanyId})";
 
             if (!Form1.ExecuteQuery(query)) return;
 
@@ -139,6 +165,12 @@ namespace EdPractic_Alex
                 textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text,
                 textBox5.Text, maskedTextBox1.Text, dateTimePicker1.Text, selectedCompanyId, comboBox1.Text
             });
+
+
+            if (validatedDate != "NULL")
+            {
+                dateTimePicker1.Checked = true;
+            }
 
             textBox1.Enabled = false;
         }
